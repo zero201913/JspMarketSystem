@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>cn.zero.mall</groupId>
+<artifactId>JspMarketSystem</artifactId>
+<packaging>war</packaging>
+<version>1.0-SNAPSHOT</version>
+<name>JspMarketSystem Maven Webapp</name>
+<url>http://maven.apache.org</url>
+  <dependencies>
+    <!-- JUnit（保持不变，适配 Java 8） -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- MySQL 驱动（8.0.23 适配 Java 8，无需修改） -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.23</version>
+    </dependency>
+
+    <!-- Servlet API（3.1.0 适配 Tomcat 7，无需修改） -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- FastJSON（1.2.83 适配 Java 8，无需修改） -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.83</version>
+    </dependency>
+
+    <!-- Lombok（降级到 1.18.20，适配 Java 8 且无 module-info.class） -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.20</version> <!-- 关键：1.18.20 及以下无模块化文件 -->
+      <scope>provided</scope> <!-- 加上 provided，避免打包到 WAR 中 -->
+    </dependency>
+
+    <!-- Logback（降级到 1.2.11，适配 Java 8 且无 module-info.class） -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.2.11</version> <!-- 1.2.x 系列适配 Java 8，无模块化 -->
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.11</version>
+    </dependency>
+      <!-- Redis 客户端依赖，使用 Jedis -->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <!-- 用于连接池管理，提高 Redis 连接性能 -->
+<!--    <dependency>-->
+<!--      <groupId>org.apache.commons</groupId>-->
+<!--      <artifactId>commons-pool2</artifactId>-->
+<!--      <version>2.6.2</version>-->
+<!--    </dependency>-->
+  </dependencies>
+<build>
+  <finalName>JspMarketSystem</finalName>
+  <plugins>
+    <!-- Maven 编译插件（3.8.1 适配 Java 8） -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.1</version>
+      <configuration>
+        <source>8</source> <!-- 源码版本：Java 8 -->
+        <target>8</target> <!-- 目标字节码版本：Java 8 -->
+        <encoding>UTF-8</encoding> <!-- 避免中文乱码 -->
+      </configuration>
+    </plugin>
+
+    <!-- Tomcat 7 插件（保持不变，适配 Java 8） -->
+    <plugin>
+      <groupId>org.apache.tomcat.maven</groupId>
+      <artifactId>tomcat7-maven-plugin</artifactId>
+      <version>2.2</version>
+      <configuration>
+        <port>80</port>
+        <path>/</path>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+</project>

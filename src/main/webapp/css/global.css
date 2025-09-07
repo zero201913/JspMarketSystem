@@ -1,0 +1,55 @@
+/* 重置默认样式，消除浏览器差异 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* 禁止所有元素的文字选择 */
+}
+/*body {*/
+/*    font-family: "Microsoft Yahei", sans-serif;*/
+/*    background-color: #f5f5f5;*/
+/*    color: #333;*/
+/*    line-height: 1.6;*/
+/*}*/
+/*.container {*/
+/*    width: 1200px;*/
+/*    margin: 0 auto;*/
+/*    padding: 20px;*/
+/*}*/
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+p {
+    margin-bottom: 10px;
+}
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #2980b9;
+}
+/* 表单样式 */
+form {
+    margin-bottom: 20px;
+}
+input, textarea, select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
